@@ -1,0 +1,31 @@
+{
+	"name": "ProductTranslation",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "sourceService",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": "product_category_name_translation.csv"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "product_category_name",
+				"type": "String"
+			},
+			{
+				"name": "product_category_name_english",
+				"type": "String"
+			}
+		]
+	}
+}
