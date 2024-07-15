@@ -1,0 +1,12 @@
+{
+	"name": "sourceService",
+	"properties": {
+		"annotations": [],
+		"type": "HttpServer",
+		"typeProperties": {
+			"url": "https://github.com/abdulmalik022/olibs-commerce-project/main",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}
