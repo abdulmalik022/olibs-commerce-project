@@ -1,0 +1,9 @@
+{
+	"name": "ncplFactory001",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "e5d325b0-1b01-42e0-aec6-07c1ae4b2530",
+		"tenantId": "42ea3d44-e2af-475e-8222-65551624c9e7"
+	}
+}
