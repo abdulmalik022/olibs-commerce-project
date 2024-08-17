@@ -1,0 +1,91 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "firstproject002"
+		},
+		"firstADLS_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'firstADLS'"
+		},
+		"storageService_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'storageService'"
+		},
+		"HttpServer1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://raw.githubusercontent.com/abdulmalik022/olibs-commerce-project/main/"
+		},
+		"customersServer_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://raw.githubusercontent.com/abdulmalik022/olibs-commerce-project/main/olist_customers_dataset.csv"
+		},
+		"firstADLS_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://firstproject002.dfs.core.windows.net/"
+		},
+		"sourceService_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://raw.githubusercontent.com/abdulmalik022/olibs-commerce-project/main/"
+		},
+		"storageService_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://firstproject001.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "firstproject002_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"firstADLS_accountKey": {
+						"value": "[parameters('firstADLS_accountKey')]"
+					},
+					"storageService_accountKey": {
+						"value": "[parameters('storageService_accountKey')]"
+					},
+					"HttpServer1_properties_typeProperties_url": {
+						"value": "[parameters('HttpServer1_properties_typeProperties_url')]"
+					},
+					"customersServer_properties_typeProperties_url": {
+						"value": "[parameters('customersServer_properties_typeProperties_url')]"
+					},
+					"firstADLS_properties_typeProperties_url": {
+						"value": "[parameters('firstADLS_properties_typeProperties_url')]"
+					},
+					"sourceService_properties_typeProperties_url": {
+						"value": "[parameters('sourceService_properties_typeProperties_url')]"
+					},
+					"storageService_properties_typeProperties_url": {
+						"value": "[parameters('storageService_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
